@@ -22,7 +22,7 @@ export const bhanjyangVolumes: BhanjyangVolume[] = [
     title: "Bhanjyang Vol. 43, 2020",
     volume: 43,
     year: 2020,
-    coverImage: "/Images/bhanjyang.png",
+    coverImage: "/Images/magazine.png",
     pdfUrl: "/files/bhanjyang/vol-43-2020.pdf",
   },
   {

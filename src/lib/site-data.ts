@@ -176,14 +176,14 @@ export const pillars: Pillar[] = [
   {
     id: "boarding",
     label: "Boarding Life",
-    image: "/Images/library.png",
+    image: "/Images/librarys.png",
     heading: "Boarding Life",
     body: "Roughly seven hundred students live on campus in a structured residential community supervised by wardens and house masters. Daily life here builds independence, timekeeping, hygiene and teamwork — and it brings students from all seventy-five districts under one roof, where the friendships they form often last a lifetime.",
   },
   {
     id: "values",
     label: "Character & Values",
-    image: "/Images/classroom.png",
+    image: "/Images/classrooms.png",
     heading: "Character & Values",
     body: "Discipline, service and unity in diversity sit at the centre of a CA education. Students lead their own morning assemblies, keep their rooms and books in order, and take part in community and national service, so that character is practised every day rather than only talked about.",
   },
@@ -224,7 +224,7 @@ export const introduction = {
     "After years of planning and forethought, Crestwood Academy came into existence in 1972 as a joint venture between the Government of Nepal and the Government of the United Kingdom. Nepal provided the land at Crestwood; the British government provided the technical expertise, curriculum design and financial assistance that shaped the school.",
     "Teaching began across the primary and secondary blocks with a residential community drawn from every district of Nepal. That model endures today: small class sizes, a structured daily routine, and an expectation that students serve their community and their country.",
   ],
-  image: "/Images/school.png",
+  image: "/Images/schools.png",
   imageAlt: "Academic block at Crestwood Academy",
   href: "/about-us/history",
 };

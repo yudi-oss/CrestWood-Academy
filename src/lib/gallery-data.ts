@@ -21,10 +21,10 @@ export const photoItems: PhotoItem[] = [
   { id: "p2", src: "/Images/exhibition.png", alt: "Science Exhibition", category: "Academics" },
   { id: "p3", src: "/Images/cultural.png", alt: "Cultural Program", category: "Events" },
   { id: "p4", src: "/Images/events.jpg", alt: "Graduation Ceremony", category: "Events" },
-  { id: "p5", src: "/Images/school.png", alt: "Campus View", category: "Campus" },
-  { id: "p6", src: "/Images/classroom.png", alt: "Classroom Session", category: "Academics" },
-  { id: "p7", src: "/Images/football.png", alt: "Basketball Match", category: "Sports" },
-  { id: "p8", src: "/Images/library.png", alt: "Library", category: "Campus" },
+  { id: "p5", src: "/Images/schools.png", alt: "Campus View", category: "Campus" },
+  { id: "p6", src: "/Images/classrooms.png", alt: "Classroom Session", category: "Academics" },
+  { id: "p7", src: "/Images/footballs.png", alt: "Basketball Match", category: "Sports" },
+  { id: "p8", src: "/Images/librarys.png", alt: "Library", category: "Campus" },
 ];
 
 export const videoItems: VideoItem[] = [

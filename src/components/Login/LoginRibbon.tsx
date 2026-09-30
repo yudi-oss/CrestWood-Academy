@@ -9,7 +9,7 @@ export default function LoginRibbon() {
       aria-label="Go to homepage"
     >
       <Image
-        src="/Images/ribbon.png"
+        src="/Images/ribbons.png"
         alt="Crestwood Academy"
         width={480}
         height={190}
