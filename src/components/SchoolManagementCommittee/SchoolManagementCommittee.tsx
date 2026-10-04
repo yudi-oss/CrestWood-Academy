@@ -1,4 +1,4 @@
-import SchoolManagementCommitteeLayout from "@/components/SchoolManagementCommittee/SchoolManagementCommitteeLayout";
+import AboutUsPageLayout from "@/components/AboutUS/AboutUsPageLayout";
 
 type Member = { no: string; role: string; name: string; position: string };
 
@@ -15,9 +15,9 @@ const MEMBERS: Member[] = [
 
 export default function SchoolManagementCommittee() {
   return (
-    <SchoolManagementCommitteeLayout
+    <AboutUsPageLayout
       title="School Management Committee (SMC)"
-      active="School Management Committee"
+      active="/about-us/school-management-committee"
     >
       <div className="space-y-5 text-[15px] leading-[1.9] text-neutral-700 text-justify">
         <p>
@@ -47,6 +47,6 @@ export default function SchoolManagementCommittee() {
           ))}
         </div>
       </div>
-    </SchoolManagementCommitteeLayout>
+    </AboutUsPageLayout>
   );
 }

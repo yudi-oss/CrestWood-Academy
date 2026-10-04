@@ -1,3 +1,5 @@
+import type { SidebarSection } from "@/components/InnerPage/PageSidebar";
+
 /** Converts a notice label into the URL slug used across the Notice section. */
 export function slugify(label: string): string {
   return label
@@ -8,8 +10,8 @@ export function slugify(label: string): string {
     .replace(/(^-|-$)/g, "");
 }
 
-/** Left column of the Notice list, top to bottom. */
-export const NOTICE_COLUMN_ONE = [
+/** Every notice, in the order the old two-column sidebar listed them. */
+export const NOTICE_LABELS = [
   "Class 5 Scholarship Result, 2082 B.S.",
   "Class 11 Book List, 2082 B.S.",
   "Invitation for Bids No: CA/NCB/Works/01/2082-83",
@@ -29,10 +31,6 @@ export const NOTICE_COLUMN_ONE = [
   "Vacancy Notice for the post of Vice-Principal",
   "Graduation Ceremony",
   "Revised Tender Notice (Wall Construction)",
-];
-
-/** Right column of the Notice list, top to bottom. */
-export const NOTICE_COLUMN_TWO = [
   "A Level Book List, 2025",
   "Ration Tender Notice",
   "Obituary: Mr. Ken Jones",
@@ -53,4 +51,16 @@ export const NOTICE_COLUMN_TWO = [
   "CA Contributes Rs. 14 Lakh to the Prime Minister's Disaster Relief Fund",
 ];
 
-export const NOTICE_LABELS = [...NOTICE_COLUMN_ONE, ...NOTICE_COLUMN_TWO];
+/** Resolves the href for a notice title, so pages can highlight themselves. */
+export function noticeHref(title: string): string {
+  return `/notice/${slugify(title)}`;
+}
+
+/** The single source of truth for the notice rail, shared by every subpage. */
+export const NOTICE_SECTION: SidebarSection = {
+  title: "Notice",
+  items: NOTICE_LABELS.map((label) => ({
+    label,
+    href: noticeHref(label),
+  })),
+};

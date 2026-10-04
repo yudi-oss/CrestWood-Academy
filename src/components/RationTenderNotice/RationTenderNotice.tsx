@@ -1,8 +1,9 @@
-import RationTenderNoticeLayout from "@/components/RationTenderNotice/RationTenderNoticeLayout";
+import NoticeLayout from "@/components/Notice/NoticeLayout";
+import DownloadButton from "@/components/InnerPage/DownloadButton";
 
 export default function RationTenderNotice() {
   return (
-    <RationTenderNoticeLayout title="Ration Tender Notice" active="Ration Tender Notice">
+    <NoticeLayout title="Ration Tender Notice">
       <div className="text-[15px] leading-[1.9] text-neutral-700">
         {/*
           NOTE: transcribed from a screenshot of the live page. Devanagari
@@ -36,15 +37,9 @@ export default function RationTenderNotice() {
 
         <div className="mt-6">
           {/* Replace href with the real PDF/document path once it's hosted. */}
-          <a
-            href="#"
-            className="inline-flex items-center gap-2 bg-[#2f9e44] text-white text-[13.5px] font-medium px-4 py-2.5 rounded hover:bg-[#278239] transition-colors"
-          >
-            <span aria-hidden="true">⬇</span>
-            Ration Tender Notice
-          </a>
+          <DownloadButton href="#">Ration Tender Notice</DownloadButton>
         </div>
       </div>
-    </RationTenderNoticeLayout>
+    </NoticeLayout>
   );
 }

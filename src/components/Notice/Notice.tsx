@@ -1,10 +1,10 @@
 import NoticeLayout from "./NoticeLayout";
+import DownloadButton from "@/components/InnerPage/DownloadButton";
 
 export default function ClassFiveScholarshipResult() {
   return (
     <NoticeLayout
       title="Class 5 Scholarship Result, 2082 B.S."
-      active="Class 5 Scholarship Result, 2082 B.S."
     >
       <div className="text-[15px] leading-[1.9] text-neutral-700">
         <h2 className="ca-subheading text-center">
@@ -28,13 +28,7 @@ export default function ClassFiveScholarshipResult() {
         </p>
 
         <div className="mt-6">
-          <a
-            href="#"
-            className="inline-flex items-center gap-2 bg-[#2f9e44] text-white text-[13.5px] font-medium px-4 py-2.5 rounded hover:bg-[#278239] transition-colors"
-          >
-            <span aria-hidden="true">⬇</span>
-            Class 5 Scholarship Result, 2082 B.S.
-          </a>
+          <DownloadButton href="#">Class 5 Scholarship Result, 2082 B.S.</DownloadButton>
         </div>
       </div>
     </NoticeLayout>

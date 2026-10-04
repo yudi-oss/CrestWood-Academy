@@ -1,4 +1,23 @@
 import { bhanjyangVolumesSorted } from "./bhanjyang-data";
+import { departments } from "./academics-data";
+import { NOTICE_LABELS, noticeHref } from "./notices-data";
+
+/** About Us subpages, in sidebar order. Shared by the nav and the rail. */
+export const ABOUT_US_CHILDREN = [
+  { label: "History", href: "/about-us/history" },
+  { label: "School Profile", href: "/about-us/school-profile" },
+  { label: "Board of Trustees (BOT)", href: "/about-us/board-of-trustees" },
+  {
+    label: "School Management Committee",
+    href: "/about-us/school-management-committee",
+  },
+  {
+    label: "Senior Management Team (SMT)",
+    href: "/about-us/senior-management-team",
+  },
+  { label: "FOBS (Parents' Body)", href: "/about-us/fobs" },
+  { label: "SEBS (Alumni)", href: "/about-us/sebs" },
+];
 
 export const contact = {
   phones: [
@@ -15,84 +34,87 @@ export const contact = {
 export type NavItem = {
   label: string;
   href: string;
+  /** When set, the item only renders on that route and its sub-routes. */
+  onlyOn?: string;
   children?: { label: string; href: string }[];
 };
+
+/** Sections of the student portal, in the order they appear on the page. */
+export const studentPortalSections = [
+  { id: "profile", label: "My Profile" },
+  { id: "schedule", label: "Today's Schedule" },
+  { id: "results", label: "Results" },
+  { id: "assignments", label: "Assignments" },
+  { id: "notices", label: "Notices" },
+  { id: "resources", label: "Quick Links" },
+];
 
 export const navItems: NavItem[] = [
   { label: "Home", href: "/" },
   {
     label: "About Us",
-    href: "/about",
-    children: [
-      { label: "History", href: "/about-us/history" },
-      { label: "Board OF Trustees", href: "/about-us/board-of-trustees" },
-      { label: "Fobs", href: "/about-us/fobs" },
-      { label: "Sebs", href: "/about-us/sebs" },
-      { label: "School Profile ", href: "/about-us/school-profile" },
-      { label: "School Management", href: "/about-us/school-management" },
-      { label: "Senior Management Team", href: "/about-us/senior-management-team" },
-    ],
+    href: "/about-us/history",
+    children: ABOUT_US_CHILDREN,
   },
   {
     label: "Academics",
-    href: "/academics",
-    children: [
-      { label: "Physics Department", href: "/academics/physics-department" },
-      { label: "Art Department", href: "/academics/art-department" },
-      { label: "Biology Department", href: "/academics/biology-department" },
-      { label: "Chemistry Department", href: "/academics/chemistry-department" },
-      { label: "Computer Science Department", href: "/academics/computer-science-department" },
-      { label: "Computer Department", href: "/academics/computer-department" },
-      { label: "Integrated Science Department", href: "/academics/integrated-science-department" },
-      { label: "Nepali Department", href: "/academics/nepali-department" },
-      { label: "Physics Department", href: "/academics/physics-department" },
-      { label: "Mathematics Department", href: "/academics/mathematics-department" },
-      { label: "Social Science Department", href: "/academics/social-science-department" },
-    ],
+    href: "/academics/nepali-department",
+    children: departments.map((d) => ({
+      label: d.label,
+      href: `/academics/${d.slug}`,
+    })),
   },
   {
-     label: "Notice",
+    label: "Notice",
     href: "/notice",
-    children: [
-      { label: "General Notices", href: "/notice/general" },
-      { label: "Tender Notices", href: "/notice/tender" },
-      { label: "Vacancy", href: "/notice/vacancy" },
-    ],
+    // The full list lives in the Notice rail; the menu shows the newest few.
+    children: NOTICE_LABELS.slice(0, 6).map((label) => ({
+      label,
+      href: noticeHref(label),
+    })),
   },
   {
-     label: "Bhanjyang (Annual Magazine)",
-  href: "/bhanjyang",
-  children: bhanjyangVolumesSorted.map((v) => ({
-    label: v.title,
-    href: `/bhanjyang/${v.slug}`,
-  })),
+    label: "Bhanjyang (Annual Magazine)",
+    href: "/bhanjyang",
+    children: bhanjyangVolumesSorted.map((v) => ({
+      label: v.title,
+      href: `/bhanjyang/${v.slug}`,
+    })),
   },
   {
     label: "Gallery",
-    href: "/gallery",
+    href: "/gallery/photo",
     children: [
       { label: "Photo", href: "/gallery/photo" },
       { label: "Video", href: "/gallery/video" },
     ],
   },
   { label: "Contact", href: "/contact" },
-  { label: "APPLY NOW", href: "/ApplyOnline" },
+  {
+    label: "Student Portal",
+    href: "/student",
+    onlyOn: "/student",
+    children: studentPortalSections.map((section) => ({
+      label: section.label,
+      href: `/student#${section.id}`,
+    })),
+  },
 ];
 
 export const loginLinks = [
   { label: "Login", href: "/Login" },
-  
+  { label: "Student Portal", href: "/student" },
 ];
 
 
 export const tickerNotices = [
-  { title: "Revised Tender Notice (Wall Construction)", href: "/notice/tender" },
+  { title: "Revised Tender Notice (Wall Construction)", href: noticeHref("Revised Tender Notice (Wall Construction)") },
   {
     title: "CA Contributes Rs. 14 Lakh to the Prime Minister's Disaster Relief Fund",
-    href: "/notice/general",
+    href: noticeHref("CA Contributes Rs. 14 Lakh to the Prime Minister's Disaster Relief Fund"),
   },
-  { title: "Graduation Ceremony", href: "/notice/general" },
-  { title: "INVITATION FOR BIDS", href: "/notice/tender" },
+  { title: "Graduation Ceremony", href: noticeHref("Graduation Ceremony") },
+  { title: "INVITATION FOR BIDS", href: noticeHref("INVITATION FOR BIDS") },
 ];
 
 export type HeroSlide = {
@@ -236,7 +258,7 @@ export const latestNews = [
     excerpt:
       "Crestwood Academy (CA) invites electronic bids from eligible bidders for the construction of East Side Boundary Wall with V-Drain, Toe Wall and Landscaping, Main Gate and Guard Post (Package-C \u201c1st Phase\u201d) under National Competitive Bidding \u2013 Single Stage Two Envelope Bidding procedures.",
     image: "/Images/announcement.jpg",
-    href: "/notice/tender",
+    href: noticeHref("Revised Tender Notice (Wall Construction)"),
   },
   {
     title: "Graduation Ceremony",
@@ -244,7 +266,7 @@ export const latestNews = [
     excerpt:
       "Due to the tragic situation resulting from the recent flooding, the Graduation Ceremony for 7000E Batch, originally scheduled for Sunday, 14 Bhadra 2083 (30 August 2026), has been postponed until further notice. The revised date will be communicated to students and parents at a later time.",
     image: "/Images/events.jpg",
-    href: "/notice/general",
+    href: "/notice",
   },
 ];
 
@@ -252,7 +274,7 @@ export const ourEvents = [
   {
     title: "Natural Panorama",
     image: "/Images/events.jpg",
-    href: "/gallery/photos",
+    href: "/gallery/photo",
   },
 ];
 
@@ -274,9 +296,9 @@ export const footerLinks = [
   { label: "About Us", href: "/about-us/history" },
   { label: "Academics", href: "/academics" },
   { label: "Notice", href: "/notice" },
-  { label: "Bhangyang ( Annual Magazine )", href: "/bhanjyang" },
+  { label: "Bhanjyang (Annual Magazine)", href: "/bhanjyang" },
   { label: "Gallery", href: "/gallery/photo" },
-  { label: "Library", href: "/gallery/video " },
+  { label: "Library", href: "/gallery/video" },
 ];
 
 export const footerBlurb =

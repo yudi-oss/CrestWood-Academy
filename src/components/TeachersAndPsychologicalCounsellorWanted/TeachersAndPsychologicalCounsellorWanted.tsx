@@ -1,4 +1,5 @@
-import TeachersAndPsychologicalCounsellorWantedLayout from "@/components/TeachersAndPsychologicalCounsellorWanted/TeachersAndPsychologicalCounsellorWantedLayout";
+import NoticeLayout from "@/components/Notice/NoticeLayout";
+import DownloadButton from "@/components/InnerPage/DownloadButton";
 
 type Vacancy = { position: string; qualification: string; no: number };
 
@@ -17,9 +18,8 @@ const VACANCIES: Vacancy[] = [
 
 export default function TeachersAndPsychologicalCounsellorWanted() {
   return (
-    <TeachersAndPsychologicalCounsellorWantedLayout
+    <NoticeLayout
       title="Teachers and Psychological Counsellor Wanted"
-      active="Teachers and Psychological Counsellor Wanted"
     >
       <div className="text-[15px] leading-[1.9] text-neutral-700">
         <p className="text-center font-medium m-0 mb-4">
@@ -76,15 +76,9 @@ export default function TeachersAndPsychologicalCounsellorWanted() {
 
         <div className="mt-4">
           {/* Replace href with the real PDF/document path once it's hosted. */}
-          <a
-            href="#"
-            className="inline-flex items-center gap-2 bg-[#2f9e44] text-white text-[13.5px] font-medium px-4 py-2.5 rounded hover:bg-[#278239] transition-colors"
-          >
-            <span aria-hidden="true">⬇</span>
-            Teachers and Psychological Counsellor Wanted
-          </a>
+          <DownloadButton href="#">Teachers and Psychological Counsellor Wanted</DownloadButton>
         </div>
       </div>
-    </TeachersAndPsychologicalCounsellorWantedLayout>
+    </NoticeLayout>
   );
 }

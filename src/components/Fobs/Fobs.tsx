@@ -1,4 +1,4 @@
-import FobsLayout from "@/components/Fobs/FobsLayout";
+import AboutUsPageLayout from "@/components/AboutUS/AboutUsPageLayout";
 
 const EXECUTIVE_COMMITTEE = [
   "Mr. Janak Raj Dhungana Chairperson",
@@ -18,7 +18,7 @@ const EXECUTIVE_COMMITTEE = [
 
 export default function Fobs() {
   return (
-    <FobsLayout title="FOBS (Parents’ Body)" crumbLabel="FOBS" active="FOBS (Parents' Body)">
+    <AboutUsPageLayout title="FOBS (Parents’ Body)" crumbLabel="FOBS" active="/about-us/fobs">
       <div className="space-y-5 text-[15px] leading-[1.9] text-neutral-700 text-justify">
         <p>
           Friends of Crestwood Academy (FOBS) is the association of
@@ -37,6 +37,6 @@ export default function Fobs() {
           ))}
         </div>
       </div>
-    </FobsLayout>
+    </AboutUsPageLayout>
   );
 }

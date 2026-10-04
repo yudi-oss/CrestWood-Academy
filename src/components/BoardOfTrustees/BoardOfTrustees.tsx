@@ -1,4 +1,4 @@
-import BoardOfTrusteesLayout from "@/components/BoardOfTrustees/BoardOfTrusteesLayout";
+import AboutUsPageLayout from "@/components/AboutUS/AboutUsPageLayout";
 
 type Member = { role: string; detail: string };
 
@@ -17,10 +17,10 @@ const MEMBERS: Member[] = [
 
 export default function BoardOfTrustees() {
   return (
-    <BoardOfTrusteesLayout
+    <AboutUsPageLayout
       title="Board Of Trustees (BOT)"
       crumbLabel="Board of Trustees"
-      active="Board Of Trustees (BOT)"
+      active="/about-us/board-of-trustees"
     >
       <div className="space-y-5 text-[15px] leading-[1.9] text-neutral-700">
         <p className="text-justify">
@@ -46,6 +46,6 @@ export default function BoardOfTrustees() {
           ))}
         </div>
       </div>
-    </BoardOfTrusteesLayout>
+    </AboutUsPageLayout>
   );
 }

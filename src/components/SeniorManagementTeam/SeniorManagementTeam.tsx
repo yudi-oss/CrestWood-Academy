@@ -1,4 +1,4 @@
-import SeniorManagementTeamLayout from "@/components/SeniorManagementTeam/SeniorManagementTeamLayout";
+import AboutUsPageLayout from "@/components/AboutUS/AboutUsPageLayout";
 type Member = { role: string; detail: string };
 
 const MEMBERS: Member[] = [
@@ -16,10 +16,10 @@ const MEMBERS: Member[] = [
 
 export default function SeniorManagementTeam() {
   return (
-    <SeniorManagementTeamLayout
+    <AboutUsPageLayout
       title="Senior Management Team (SMT)"
       crumbLabel="Senior Management Team"
-      active="Senior Management Team (SMT)"
+      active="/about-us/senior-management-team"
     >
       <div className="space-y-5 text-[15px] leading-[1.9] text-neutral-700 text-justify">
         <p>
@@ -40,6 +40,6 @@ export default function SeniorManagementTeam() {
           ))}
         </div>
       </div>
-    </SeniorManagementTeamLayout>
+    </AboutUsPageLayout>
   );
 }

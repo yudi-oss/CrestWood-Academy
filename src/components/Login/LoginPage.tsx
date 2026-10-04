@@ -1,6 +1,12 @@
+"use client";
+
 import Image from "next/image";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 export default function LoginPage() {
+  const router = useRouter();
+
   return (
     <div className="min-h-screen bg-white">
       <div className="grid min-h-screen lg:grid-cols-[1.1fr_0.9fr]">
@@ -21,13 +27,27 @@ export default function LoginPage() {
           <div className="w-full max-w-md">
             
             {/* Logo / School Name */}
-            <div className="mb-16">
-              <p className="text-sm uppercase tracking-[0.35em] text-gray-400">
-                Crestwood Academy
-              </p>
+            <Link
+              href="/"
+              aria-label="Crestwood Academy home"
+              className="mb-16 block transition-opacity hover:opacity-70"
+            >
+              <div className="flex items-center gap-4">
+                <Image
+                  src="/Images/logo.png"
+                  alt="Crestwood Academy logo"
+                  width={56}
+                  height={56}
+                  className="h-14 w-14 shrink-0 rounded-sm bg-white p-1"
+                />
+
+                <p className="text-sm uppercase tracking-[0.35em] text-gray-400">
+                  Crestwood Academy
+                </p>
+              </div>
 
               <div className="mt-4 h-px w-20 bg-black" />
-            </div>
+            </Link>
 
             {/* Heading */}
             <div className="mb-12">
@@ -41,7 +61,13 @@ export default function LoginPage() {
             </div>
 
             {/* Form */}
-            <form className="space-y-8">
+            <form
+              className="space-y-8"
+              onSubmit={(event) => {
+                event.preventDefault();
+                router.push("/student");
+              }}
+            >
               <div>
                 <label className="mb-2 block text-sm text-gray-600">
                   Username
@@ -90,7 +116,15 @@ export default function LoginPage() {
 
             {/* Footer */}
             <div className="mt-20 border-t border-gray-200 pt-6">
-              <p className="text-xs text-gray-400">
+              <Image
+                src="/Images/logo.png"
+                alt="Crestwood Academy logo"
+                width={44}
+                height={44}
+                className="h-11 w-11 rounded-sm bg-white p-1"
+              />
+
+              <p className="mt-4 text-xs text-gray-400">
                 © 2026 Crestwood Academy
               </p>
             </div>

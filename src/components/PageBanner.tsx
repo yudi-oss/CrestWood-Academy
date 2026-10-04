@@ -3,7 +3,6 @@
 import { useEffect, useRef } from "react";
 import Image from "next/image";
 import Navbar from "@/components/HomePage/Navbar";
-import TopBar from "@/components/HomePage/TopBar";
 
 export default function PageBanner({
   title,
@@ -99,9 +98,6 @@ export default function PageBanner({
 
       {/* Dark Overlay (image banners only, keeps the video clean) */}
       {!video && <div className="absolute inset-0 -z-10 bg-black/40" />}
-
-      {/* Top Contact Bar */}
-      <TopBar />
 
       {/* Navigation */}
       <Navbar />

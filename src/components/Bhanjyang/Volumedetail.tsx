@@ -1,61 +1,55 @@
 import Image from "next/image";
-import BhanjyangLayout from "@/components/Bhanjyang/BhanjyangLayout";
+import InnerPageLayout from "@/components/InnerPage/InnerPageLayout";
+import DownloadButton from "@/components/InnerPage/DownloadButton";
+import { BHANJYANG_SECTION } from "@/components/Bhanjyang/bhanjyang-nav";
 import type { BhanjyangVolume } from "@/lib/bhanjyang-data";
 
 export default function VolumeDetail({ volume }: { volume: BhanjyangVolume }) {
   return (
-    <BhanjyangLayout title={volume.title} activeSlug={volume.slug}>
-      <div className="flex flex-col items-start gap-5">
-        {/* Render Cover Image if available */}
-        {volume.coverImage && (
-          <div className="border border-gray-200 rounded-sm overflow-hidden shadow-sm">
-            <Image
-              src={volume.coverImage}
-              alt={volume.title}
-              width={500}
-              height={650}
-              className="w-full h-auto object-cover max-w-md"
-              priority
-            />
+    <InnerPageLayout
+      title={volume.title}
+      sectionLabel="Bhanjyang"
+      sectionHref="/bhanjyang"
+      sections={[BHANJYANG_SECTION]}
+      active={`/bhanjyang/${volume.slug}`}
+    >
+      <div className="flex flex-col items-start gap-8">
+        {volume.coverImage ? (
+          <figure className="w-full max-w-[380px] border border-neutral-200 bg-white p-2 shadow-sm">
+            <div className="relative aspect-[3/4] w-full overflow-hidden bg-ca-paper">
+              <Image
+                src={volume.coverImage}
+                alt={`Cover of ${volume.title}`}
+                fill
+                sizes="(max-width: 768px) 100vw, 380px"
+                className="object-cover"
+                priority
+              />
+            </div>
+            <figcaption className="mt-2 border-t border-neutral-200 pt-2 text-center font-display text-[11px] uppercase tracking-[0.16em] text-neutral-500">
+              {volume.title}
+            </figcaption>
+          </figure>
+        ) : (
+          <div className="flex aspect-[3/4] w-full max-w-[380px] flex-col items-center justify-center gap-2 border border-neutral-200 bg-ca-paper p-6 text-center">
+            <span className="font-display text-[15px] uppercase tracking-[0.16em] text-ca-navy">
+              {volume.title}
+            </span>
+            <span className="text-[13px] text-neutral-500">
+              No cover preview for this issue
+            </span>
           </div>
         )}
 
-        {/* Render Download Button below the image (or standalone if no image exists) */}
         {volume.pdfUrl || volume.coverImage ? (
-          <a
-            href={volume.pdfUrl || "#"}
-            download
-            className="inline-flex items-center gap-2 rounded bg-[#00c02c] px-5 py-2.5 text-white font-medium hover:bg-green-700 transition-colors shadow-sm"
-          >
-            <DownloadIcon />
-            <span>{volume.title}</span>
-          </a>
+          <DownloadButton href={volume.pdfUrl || "#"}>Download PDF</DownloadButton>
         ) : (
-          <p className="text-gray-500">
+          <p className="text-[13.5px] text-neutral-500">
             This issue isn&apos;t available online yet.
           </p>
         )}
       </div>
-    </BhanjyangLayout>
+    </InnerPageLayout>
   );
 }
 
-function DownloadIcon() {
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth={2}
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      className="w-4 h-4"
-      aria-hidden="true"
-    >
-      <path d="M12 3v12" />
-      <path d="m7 10 5 5 5-5" />
-      <path d="M5 21h14" />
-    </svg>
-  );
-}

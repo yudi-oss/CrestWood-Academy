@@ -91,7 +91,7 @@ export default function Contact() {
         <div className="flex items-center gap-4">
           <button
             type="submit"
-            className="rounded-[4px] bg-[#239b41] px-6 py-2 text-[14px] font-medium text-white transition-colors hover:bg-[#1c7f35]"
+            className="rounded-sm bg-ca-crimson px-6 py-3 text-[14px] font-medium text-white transition-colors hover:bg-ca-crimson-deep"
           >
             Send Message
           </button>

@@ -1,21 +1,26 @@
-import ObituaryKenJonesLayout from "@/components/ObituaryKenJones/ObituaryKenJonesLayout";
+import Image from "next/image";
+import NoticeLayout from "@/components/Notice/NoticeLayout";
 
 export default function ObituaryKenJones() {
   return (
-    <ObituaryKenJonesLayout title="Obituary: Mr. Ken Jones" active="Obituary: Mr. Ken Jones">
-      <div className="text-[15px] text-neutral-700">
+    <NoticeLayout title="Obituary: Mr. Ken Jones">
+      <div className="max-w-[68ch] text-[15px] leading-[1.9] text-neutral-700">
         {/* Swap this for the real photo once you have it —
-            /public/images/notice/ken-jones.jpg, for example. */}
-        <div className="w-[300px] p-2 bg-white border border-neutral-200 shadow-sm">
-          <img
-            src="https://picsum.photos/seed/ken-jones-obituary/560/560"
-            alt="Mr. Ken Jones"
-            className="w-full aspect-square object-cover block"
-          />
-        </div>
+            /Images/notice/ken-jones.jpg, for example. */}
+        <figure className="w-full max-w-[300px] border border-neutral-200 bg-white p-2 shadow-sm">
+          <div className="relative aspect-square w-full">
+            <Image
+              src="https://picsum.photos/seed/ken-jones-obituary/560/560"
+              alt="Mr. Ken Jones"
+              fill
+              sizes="300px"
+              className="object-cover"
+            />
+          </div>
+        </figure>
 
-        <p className="font-bold text-neutral-800 mt-6">Obituary: Mr. Ken Jones</p>
+        <p className="mt-6 font-bold text-neutral-800">Obituary: Mr. Ken Jones</p>
       </div>
-    </ObituaryKenJonesLayout>
+    </NoticeLayout>
   );
 }

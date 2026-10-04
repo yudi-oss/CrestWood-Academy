@@ -1,10 +1,10 @@
-import InvitationForBidsLayout from "@/components/InvitationForBids/InvitationForBidsLayout";
+import NoticeLayout from "@/components/Notice/NoticeLayout";
+import DownloadButton from "@/components/InnerPage/DownloadButton";
 
 export default function InvitationForBids() {
   return (
-    <InvitationForBidsLayout
+    <NoticeLayout
       title="Invitation for Bids No: CA/NCB/Works/01/2082-83"
-      active="Invitation for Bids No: CA/NCB/Works/01/2082-83"
     >
       <div className="text-[15px] leading-[1.9] text-neutral-700">
         <p className="text-center font-medium m-0">
@@ -23,15 +23,9 @@ export default function InvitationForBids() {
 
         <div className="mt-4">
           {/* Replace href with the real PDF/document path once it's hosted. */}
-          <a
-            href="#"
-            className="inline-flex items-center gap-2 bg-[#2f9e44] text-white text-[13.5px] font-medium px-4 py-2.5 rounded hover:bg-[#278239] transition-colors"
-          >
-            <span aria-hidden="true">⬇</span>
-            Invitation for Bids No: CA/NCB/Works/01/2082-83
-          </a>
+          <DownloadButton href="#">Invitation for Bids No: CA/NCB/Works/01/2082-83</DownloadButton>
         </div>
       </div>
-    </InvitationForBidsLayout>
+    </NoticeLayout>
   );
 }

@@ -12,7 +12,7 @@ export default function ContactBreadcrumb({
           <span key={item.label} className="flex items-center gap-2">
             {i > 0 && <span className="text-neutral-300">/</span>}
             {item.href ? (
-              <Link href={item.href} className="text-[#2f9e44] hover:underline">
+              <Link href={item.href} className="text-ca-crimson hover:text-ca-crimson-deep hover:underline">
                 {item.label}
               </Link>
             ) : (

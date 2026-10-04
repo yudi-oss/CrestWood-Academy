@@ -1,4 +1,4 @@
-import SchoolProfileLayout from "./SchoolProfileLayout";
+import AboutUsPageLayout from "@/components/AboutUS/AboutUsPageLayout";
 
 const SUBJECT_COMBINATIONS = [
   "Physics, Chemistry and Biology (PCB)",
@@ -27,9 +27,9 @@ const BOARD_OF_COUNSELORS = [
 
 export default function SchoolProfile() {
   return (
-    <SchoolProfileLayout
+    <AboutUsPageLayout
       title="School Profile"
-      active="School Profile"
+      active="/about-us/school-profile"
     >
       {/* School Profile Content */}
       <div className="space-y-5 text-[13px] leading-[1.7] text-neutral-700 text-justify">
@@ -137,7 +137,7 @@ export default function SchoolProfile() {
               key={combination}
               className="flex items-start gap-3"
             >
-              <span className="w-1.5 h-1.5 rounded-full bg-[#2f9e44] mt-2 shrink-0" />
+              <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-ca-crimson" />
               <span>{combination}</span>
             </li>
           ))}
@@ -186,7 +186,7 @@ export default function SchoolProfile() {
               key={area}
               className="flex items-start gap-3"
             >
-              <span className="w-1.5 h-1.5 rounded-full bg-[#2f9e44] mt-2 shrink-0" />
+              <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-ca-crimson" />
               <span>{area}</span>
             </li>
           ))}
@@ -209,7 +209,7 @@ export default function SchoolProfile() {
               key={member}
               className="flex items-start gap-3"
             >
-              <span className="w-1.5 h-1.5 rounded-full bg-[#2f9e44] mt-2 shrink-0" />
+              <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-ca-crimson" />
               <span>{member}</span>
             </li>
           ))}
@@ -221,6 +221,6 @@ export default function SchoolProfile() {
           official correspondence could be more authentic and reliable.
         </p>
       </div>
-    </SchoolProfileLayout>
+    </AboutUsPageLayout>
   );
 }

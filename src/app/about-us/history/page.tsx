@@ -41,7 +41,7 @@ const LEADERSHIP = [
 
 export default function HistoryPage() {
   return (
-    <AboutUsPageLayout title="History" active="History">
+    <AboutUsPageLayout title="History" active="/about-us/history">
       {/* History Image */}
       <div className="relative w-full aspect-[3/2] overflow-hidden rounded mb-8">
         <Image
@@ -143,7 +143,7 @@ export default function HistoryPage() {
               delay={Math.min(i, 10) * 55}
               className="flex items-start gap-3"
             >
-              <span className="w-1.5 h-1.5 rounded-full bg-black mt-2 shrink-0" />
+              <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-ca-crimson" />
               <span>{event}</span>
             </Reveal>
           ))}
@@ -164,7 +164,7 @@ export default function HistoryPage() {
               delay={Math.min(i, 10) * 55}
               className="flex items-start gap-3"
             >
-              <span className="w-1.5 h-1.5 rounded-full bg-black mt-2 shrink-0" />
+              <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-ca-crimson" />
               <span>{leader}</span>
             </Reveal>
           ))}

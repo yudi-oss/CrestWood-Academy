@@ -31,7 +31,7 @@ async function NoticePage({
     slug.replace(/-/g, " ");
 
   return (
-    <NoticeLayout title={label} active={label}>
+    <NoticeLayout title={label}>
       <div className="text-[15px] leading-[1.9] text-neutral-700">
         <p className="text-justify">
           विस्तृत विवरण र सम्बन्धित फाइलहरूको लागि कृपया विद्यालयको सूचना

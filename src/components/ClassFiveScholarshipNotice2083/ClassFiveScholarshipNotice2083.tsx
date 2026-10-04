@@ -1,10 +1,10 @@
-import ClassFiveScholarshipNotice2083Layout from "@/components/ClassFiveScholarshipNotice2083/ClassFiveScholarshipNotice2083Layout";
+import NoticeLayout from "@/components/Notice/NoticeLayout";
+import DownloadButton from "@/components/InnerPage/DownloadButton";
 
 export default function ClassFiveScholarshipNotice2083() {
   return (
-    <ClassFiveScholarshipNotice2083Layout
+    <NoticeLayout
       title="Class 5 Scholarship Notice for the A/Y, 2083"
-      active="Class 5 Scholarship Notice for the A/Y, 2083"
     >
       <div className="text-[15px] leading-[1.9] text-neutral-700">
         {/*
@@ -33,15 +33,9 @@ export default function ClassFiveScholarshipNotice2083() {
 
         <div className="mt-6">
           {/* Replace href with the real PDF/document path once it's hosted. */}
-          <a
-            href="#"
-            className="inline-flex items-center gap-2 bg-[#2f9e44] text-white text-[13.5px] font-medium px-4 py-2.5 rounded hover:bg-[#278239] transition-colors"
-          >
-            <span aria-hidden="true">⬇</span>
-            Class 5 Scholarship Notice for the A/Y, 2083
-          </a>
+          <DownloadButton href="#">Class 5 Scholarship Notice for the A/Y, 2083</DownloadButton>
         </div>
       </div>
-    </ClassFiveScholarshipNotice2083Layout>
+    </NoticeLayout>
   );
 }

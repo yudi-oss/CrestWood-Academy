@@ -3,8 +3,9 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
-import { navItems, ourEvents, socials } from "@/lib/site-data";
+import { loginLinks, navItems, ourEvents, socials } from "@/lib/site-data";
 
 const CRIMSON = "bg-[#B7012C] hover:bg-[#7A0620]";
 
@@ -71,6 +72,15 @@ export default function Navbar({
   const [open, setOpen] = useState(false);
   const [mobileSub, setMobileSub] = useState<string | null>(null);
   const searchRef = useRef<HTMLInputElement>(null);
+  const pathname = usePathname();
+
+  /** Items pinned to a route (e.g. Student Portal) stay hidden everywhere else. */
+  const visibleNavItems = navItems.filter(
+    (item) =>
+      !item.onlyOn ||
+      pathname === item.onlyOn ||
+      pathname.startsWith(`${item.onlyOn}/`)
+  );
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 60);
@@ -259,12 +269,12 @@ export default function Navbar({
                 className="hidden gap-x-8 lg:grid"
                 style={{
                   gridTemplateColumns: `repeat(${Math.min(
-                    navItems.length,
+                    visibleNavItems.length,
                     5
                   )}, minmax(0, 1fr))`,
                 }}
               >
-                {navItems.map((item) => (
+                {visibleNavItems.map((item) => (
                   <div key={item.label}>
                     <Link
                       href={item.href}
@@ -298,7 +308,7 @@ export default function Navbar({
                   MOBILE NAVIGATION
               ========================== */}
               <nav className="lg:hidden">
-                {navItems.map((item) => (
+                {visibleNavItems.map((item) => (
                   <div
                     key={item.label}
                     className="border-b border-white/20"
@@ -453,6 +463,20 @@ export default function Navbar({
                       </button>
                     </div>
                   </form>
+
+                  {/* Login / Student Portal */}
+                  <div className="flex items-center gap-6">
+                    {loginLinks.map((l) => (
+                      <Link
+                        key={l.href}
+                        href={l.href}
+                        onClick={close}
+                        className="border-b border-white/40 pb-1 text-[12px] font-semibold uppercase tracking-[0.18em] text-white/85 transition-colors hover:border-white hover:text-white"
+                      >
+                        {l.label}
+                      </Link>
+                    ))}
+                  </div>
 
                   {/* Apply */}
                   <Link

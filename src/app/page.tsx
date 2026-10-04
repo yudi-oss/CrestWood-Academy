@@ -1,5 +1,5 @@
 // Example homepage (app/page.tsx). Adjust import paths to match your project.
-// Key change: <Navbar /> replaces <TopBar /> and <Header />.
+// Key change: <Navbar /> replaces the old <Header />.
 import Navbar from "@/components/HomePage/Navbar";
 import HeroSlider from "@/components/HomePage/HeroSlider";
 import NoticeTicker from "@/components/HomePage/NoticeTicker";

@@ -6,9 +6,13 @@
   --font-sans: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
   --font-display: var(--font-display), var(--font-sans), ui-sans-serif, sans-serif;
 
-  --color-ca-green: #3aa94f;
-  --color-ca-indigo: #3f2c8f;
+  /* Brand palette. The homepage sets these; every inner page reuses the
+     same tokens instead of hard-coding hex values. */
   --color-ca-navy: #14213d;
+  --color-ca-navy-deep: #00224a;
+  --color-ca-crimson: #b7012c;
+  --color-ca-crimson-deep: #7a0620;
+  --color-ca-paper: #f5f5f3;
 
   --animate-marquee: marquee 28s linear infinite;
 }

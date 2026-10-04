@@ -36,7 +36,7 @@ export default function ContactLayout({
       <main className="bg-white">
         <div className="max-w-[1040px] mx-auto px-4 py-14">
           <Reveal direction="up">
-            <h1 className="ca-page-title mb-8 text-[#2f9e44]">
+            <h1 className="ca-page-title mb-8 text-ca-navy">
               {title}
             </h1>
             {children}

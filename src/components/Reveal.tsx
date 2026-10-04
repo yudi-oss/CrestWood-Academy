@@ -13,6 +13,8 @@ type RevealDirection = "up" | "down" | "left" | "right" | "none";
 type RevealProps = {
   /** Element or component to render. Defaults to `div`. */
   as?: ElementType;
+  /** Anchor target, so a section can be linked to directly. */
+  id?: string;
   direction?: RevealDirection;
   /** Milliseconds to wait after the element enters the viewport. */
   delay?: number;
@@ -33,6 +35,7 @@ type RevealProps = {
  */
 export default function Reveal({
   as: Tag = "div",
+  id,
   direction = "up",
   delay = 0,
   duration = 700,
@@ -74,6 +77,7 @@ export default function Reveal({
   return (
     <Tag
       ref={ref}
+      id={id}
       className={className}
       style={
         {

@@ -1,4 +1,4 @@
-import Class11BookListLayout from "@/components/Class11BookList/Class11BookListLayout";
+import NoticeLayout from "@/components/Notice/NoticeLayout";
 
 type Row = {
   subject: string;
@@ -35,7 +35,7 @@ const ROWS: Row[] = [
 
 export default function Class11BookList() {
   return (
-    <Class11BookListLayout title="Class 11 Book List, 2082 B.S." active="Class 11 Book List, 2082 B.S.">
+    <NoticeLayout title="Class 11 Book List, 2082 B.S.">
       <div className="text-[15px] text-neutral-700">
         <div className="text-center mb-5">
           <p className="font-bold text-neutral-800 text-[16px] m-0">Crestwood Academy</p>
@@ -100,6 +100,6 @@ export default function Class11BookList() {
           </table>
         </div>
       </div>
-    </Class11BookListLayout>
+    </NoticeLayout>
   );
 }
